@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+use GitInfo\Console\Command\ScanCommand;
+use Symfony\Component\Console\Application;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$application = new Application();
+
+// ... register commands
+$application->add( new ScanCommand() );
+$application->run();
