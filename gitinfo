@@ -9,5 +9,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 $application = new Application();
 
 // ... register commands
-$application->add( new ScanCommand() );
+$application->add( $scan = new ScanCommand() );
+$application->setDefaultCommand( $scan->getName(),true );
 $application->run();

@@ -89,11 +89,12 @@ class GitInfo implements Jsonable {
             }, [] );
 
             $git_info['repository'] = $git_remote;
-            $git_info['status']     = $git_status;
             $git_info['branch']     = $git_branch;
             $git_info['tag']        = $git_tag;
             $git_info['created']    = gmdate( 'Y-m-d H:j:s', $git_info['created'] );
             $git_info['project']    = $basename;
+            $git_info['path']       = $this->getPath();
+            $git_info['status']     = $git_status;
 
             $git_info = collect( $git_info );
 
