@@ -65,7 +65,7 @@ class GitInfo implements Jsonable {
             $git_status = collect( explode( "\n", $console->exec( "$git status -s" ) ) )->filter()->map( function ( $info ) {
                 $c = explode( " ", $info );
 
-                return [ 'file' => $c[1], 'status' => $c[0] ];
+                return $info ? [ 'file' => $c[1], 'status' => $c[0] ] : null;
             } );
             $git_remote = $console->exec( "$git remote -v | grep fetch | awk '{print $2}'" );
             $git_branch = $console->exec( "$git branch | grep '*' | awk '{print $2}'" );
